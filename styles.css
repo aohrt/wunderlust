@@ -1,0 +1,374 @@
+/* Amber Ohrt */
+
+/* ----------------------- BEGIN CSS RESET -----------------------  */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}*/
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote {
+	quotes: none;
+}
+blockquote:before, blockquote:after,{
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* ----------------------- END CSS RESET -----------------------  */
+
+/* ----------- BEGIN My Styles -----------  */
+
+@import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap');
+
+:root {
+    --yellow: #F6D64A;
+    --teal: #55BCD5;
+    --purple: #9B26B0;
+    --blue: #499BD2;
+    --dark-Gray: #222222;
+    --light-gray: #EAEAEA;
+    --white: #FFFFFF;
+    --black: #000000;
+    --fonts: Montserrat, sans-serif;
+}
+
+/* ----------- END My Styles -----------  */
+
+body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+#skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+
+form, legend, label, option, picture, input, img, q, select, {
+    display: block; !important
+}
+
+header {
+    background-image: linear-gradient(var(--teal), var(--white));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+header p {
+    grid-column: 1/-1;
+    padding-left: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+h1, h2, h3 {
+    font-family: 'Molle', cursive;
+    padding-left: 1.5rem;
+}
+
+h1 {
+    font-size: 4em;
+    grid-column: 1/-1;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+h4, p, q, small, nav, button, form {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+input#toggle {
+    display: none;
+}
+
+/* -- play with- not working currently ---  */
+/* ----------------------- BEGIN CSS- only Hamburger Menu, borrowed from CodePen as referenced in the HTML instructions -----------------------  */
+
+#menu-toggle {
+    background-color: var(--yellow);
+    display: block;
+    /*change ?*/ position: relative;
+    top: -165px;
+    left: 400px;
+    z-index: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+}
+
+#menuToggle a {
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover { /*working?*/
+  background-color: var(--yellow);
+}
+
+/* The hamburger button hidden inside an input element */
+#menuToggle input {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+
+#menuToggle label {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+#menuToggle label span {
+  display: none;
+}
+
+/* Hamburger */
+#menuToggle label div {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-bottom: 6px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  -webkit-transform-origin: 4px 0px;
+      -ms-transform-origin: 4px 0px;
+          transform-origin: 4px 0px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#menuToggle label div:first-child {
+  -webkit-transform-origin: 0% 100%;
+      -ms-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+#menuToggle label div:nth-child(2) {
+    -webkit-transform-origin: 0% 0%;
+      -ms-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+
+#menuToggle input:checked + label div {
+  background: var(--yellow);
+}
+
+/* Use absolute positioning to place the menu off-screen */
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #ededed;
+  list-style-type: none;
+  /* Hide the menu off-screen to the left */
+  left: -100%;
+  -webkit-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/* Slide the menu in from left when the input is checked */
+#menuToggle input:checked ~ ul {
+  left: 0;
+}
+
+/* ----------------------- END CSS- only Hamburger Menu -----------------------  */
+
+p{
+    padding: 1.5rem;
+}
+
+#img-grid img {
+    width: 100%;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-left: auto;
+    max-width: 500px;
+}
+
+#plan {
+    background-color: var(--yellow);
+    padding-bottom: 2rem;
+    width: calc(100% - 2rem); /* gap? */
+    /* display: grid;
+    grid-column: 2;
+    gap: 10px;
+    justify-content: center;*/
+}
+
+#plan section {
+    background-color: var(--teal);
+    border-color: var(--white);
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    padding: .5rem;
+    margin: 1rem auto;
+    max-width: 350px;
+}
+
+h4 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin: .25rem 0;
+    padding: 0;
+}
+
+#testimonials {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+}
+
+#testimonials img {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+}
+
+#testimonials img {
+   margin-bottom: 1rem;
+}
+
+#testimonials p, #testimonials q { /* q isn't centering? */
+    text-align: center;
+    margin: .25rem 0;
+    padding: .25rem;
+}
+
+#testimonials q {
+    font-style: italic;
+}
+
+#about {
+    background-color: var(--blue);
+    padding-bottom: 2rem;
+    width: calc(100% - 2rem);
+    padding: 1rem;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    padding-top: 2rem;
+}
+
+#about div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#about img { /* isn't centering? */
+    height: 30%;
+    margin: 0 auto;
+}
+
+h4 {
+    text-align: center;
+    margin-top: 1rem;
+    padding-top: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#about p {
+    text-align: center;
+    padding: .5rem 1rem 1rem;
+}
+
+.required {
+    color: var(--purple);
+}
+
+input {
+    border-color: var(--purple);
+}
+
+form, #names, #nums, #selects {
+    display: block;
+    width: 400px;
+    padding: 1em;
+    margin: 0 auto;
+}
